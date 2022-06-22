@@ -1,10 +1,10 @@
 import constants
 from game.casting.actor import Actor
 from game.shared.point import Point
-from game.casting.score import Score
 
 
-class Snake(Actor, Score):
+
+class Snake(Actor):
     """
     A long limbless reptile.
     
@@ -13,11 +13,11 @@ class Snake(Actor, Score):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self):
+    def __init__(self,body_color,initial_position_x,initial_position_y):
         super().__init__()
         self._segments = []
-        # self._body_color = body_color
-        # self._prepare_body(initial_position_x, initial_position_y)
+        self._body_color = body_color
+        self._prepare_body(initial_position_x, initial_position_y)
 
     def set_score_text(self):
         points = self.get_point()
