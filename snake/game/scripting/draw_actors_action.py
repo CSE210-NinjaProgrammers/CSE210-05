@@ -26,17 +26,19 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        score = cast.get_first_actor("scores")
-        snake_2 = cast.get_first_actor("snake2")
-        snake = cast.get_first_actor("snake1")
-        segments = snake.get_segments()
-        segments_2 = snake_2.get_segments()
+        left_player_score = cast.get_first_actor("left_player_score")
+        right_player_score = cast.get_first_actor("right_player_score")
+        left_player = cast.get_first_actor("left_player")
+        right_player = cast.get_first_actor("right_player")
+        segments = left_player.get_segments()
+        segments_2 = right_player.get_segments()
         messages = cast.get_actors("messages")
 
         self._video_service.clear_buffer()
-        self._video_service.draw_actor(snake_2)
+        self._video_service.draw_actor(right_player)
         self._video_service.draw_actors(segments)
         self._video_service.draw_actors(segments_2)
-        self._video_service.draw_actor(score)
+        self._video_service.draw_actor(left_player_score)
+        self._video_service.draw_actor(right_player_score)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()

@@ -1,10 +1,10 @@
 import constants
 from game.casting.actor import Actor
 from game.shared.point import Point
-from game.casting.score import Score
+from game.shared.player_initial_information import PlayerInitialInformation
 
 
-class Snake(Actor, Score):
+class Snake(Actor):
     """
     A long limbless reptile.
     
@@ -13,15 +13,11 @@ class Snake(Actor, Score):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self):
+    def __init__(self, initial_information: PlayerInitialInformation):
         super().__init__()
         self._segments = []
-        # self._body_color = body_color
-        # self._prepare_body(initial_position_x, initial_position_y)
-
-    def set_score_text(self):
-        points = self.get_point()
-        self.set_text(f"Score: {points}")
+        self._body_color = initial_information["color"]
+        self._prepare_body(initial_information["x_position"], initial_information["y_position"])
 
     def get_segments(self):
         return self._segments
@@ -58,18 +54,16 @@ class Snake(Actor, Score):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self, initial_position_x, initial_position_y):
-        x = int(initial_position_x / 2)
-        y = int(initial_position_y / 2)
+        x = int(initial_position_x)
+        y = int(initial_position_y)
 
-        for i in range(constants.SNAKE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
-            text = "8" if i == 0 else "#"
-            color = constants.YELLOW if i == 0 else self._body_color
-            
-            segment = Actor()
-            segment.set_position(position)
-            segment.set_velocity(velocity)
-            segment.set_text(text)
-            segment.set_color(color)
-            self._segments.append(segment)
+        position = Point(x * constants.CELL_SIZE, y)
+        velocity = Point(1 * constants.CELL_SIZE, 0)
+        text = "8"
+        
+        segment = Actor()
+        segment.set_position(position)
+        segment.set_velocity(velocity)
+        segment.set_text(text)
+        segment.set_color(self._body_color)
+        self._segments.append(segment)

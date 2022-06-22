@@ -13,7 +13,7 @@ class ControlActorsAction(Action):
         _keyboard_service (KeyboardService): An instance of KeyboardService.
     """
 
-    def __init__(self, keyboard_service,snake_number):
+    def __init__(self, keyboard_service, snake_number):
         """Constructs a new ControlActorsAction using the specified KeyboardService.
         
         Args:
@@ -30,7 +30,7 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        if self._snake_number == 'snake1':
+        if self._snake_number == 'left_player':
 
             # left
             if self._keyboard_service.is_key_down('a'):
