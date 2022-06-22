@@ -48,13 +48,13 @@ class HandleCollisionsAction(Action):
             snake.grow_tail(points)
             score.add_points(points)
             snake_2.reset()
-        else:
-            for segment in range(len(snake_2.get_segments())):
-                if head.get_position().equals(segment):
-                    points = snake_2.get_points()
-                    snake.grow_tail(points)
-                    score.add_points(points)
-                    snake_2.reset()
+        # else:
+        #     for segment in range(len(snake_2.get_segments())):
+        #         if head.get_position().equals(segment):
+        #             points = snake_2.get_points()
+        #             snake.grow_tail(points)
+        #             score.add_points(points)
+        #             snake_2.reset()
     
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.

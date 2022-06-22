@@ -14,14 +14,15 @@ from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
+from game.casting.player import Player
 
 
 def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("snake1", Snake(constants.RED, 800, 300))
-    cast.add_actor("snake2", Snake(constants.GREEN, 900, 500))
+    cast.add_actor("snake1", Player(constants.RED, 800, 300))
+    cast.add_actor("snake2", Player(constants.GREEN, 900, 500))
     cast.add_actor("scores", Score())
    
     # start the game
