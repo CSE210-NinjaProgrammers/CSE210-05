@@ -1,7 +1,5 @@
-from game.casting.actor import Actor
 
-
-class Score(Actor):
+class Score():
     """
     A record of points made or lost. 
     
@@ -14,14 +12,17 @@ class Score(Actor):
     """
     def __init__(self):
         super().__init__()
-        self._points = 0
-        self.add_points(0)
+        self._points = 3
+    
+    def get_point(self):
 
-    def add_points(self, points):
+        return self._points
+     
+
+    def subtract_points(self):
         """Adds the given points to the score's total points.
         
         Args:
             points (int): The points to add.
         """
-        self._points += points
-        self.set_text(f"Score: {self._points}")
+        self._points -= 1
