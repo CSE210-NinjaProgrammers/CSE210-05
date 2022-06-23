@@ -2,6 +2,12 @@
 Cycle game team work
 
 # Cycle game
+The best rides are the ones where you
+bite off much more than you can chew,
+and live through it.
+
+- Doug Bradbury -
+
 Cycle is a game where players have to run away from their opponent using cycles, the challenge is that cycles leave a trail behind the player.
 
 ## Getting Started
