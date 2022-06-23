@@ -11,6 +11,7 @@ from game.scripting.draw_actors_action import DrawActorsAction
 from game.directing.director import Director
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
+from game.shared.point import Point
 
 
 def main():
@@ -19,8 +20,9 @@ def main():
     cast = Cast()
     cast.add_actor("left_player", Snake(constants.LEFT_PLAYER))
     cast.add_actor("right_player", Snake(constants.RIGHT_PLAYER))
-    cast.add_actor("left_player_score", Score())
-    cast.add_actor("right_player_score", Score())
+    cast.add_actor("left_player_score", Score(Point(0, 0),'one'))
+    cast.add_actor("right_player_score", Score(Point(780, 0),'two'))
+    # cast.add_actor("right_player_score", Score())
    
     # start the game
     keyboard_service = KeyboardService()

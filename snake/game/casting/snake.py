@@ -23,8 +23,13 @@ class Snake(Actor):
         return self._segments
 
     def move_next(self):
+        self.grow_tail(1)
         # move all segments
         for segment in self._segments:
+            x1 = 0
+            y1 = 1
+            velocity = Point(x1, y1)
+            segment.set_velocity(velocity)
             segment.move_next()
         # update velocities
         for i in range(len(self._segments) - 1, 0, -1):
@@ -59,7 +64,7 @@ class Snake(Actor):
 
         position = Point(x * constants.CELL_SIZE, y)
         velocity = Point(1 * constants.CELL_SIZE, 0)
-        text = "8"
+        text = "@"
         
         segment = Actor()
         segment.set_position(position)
