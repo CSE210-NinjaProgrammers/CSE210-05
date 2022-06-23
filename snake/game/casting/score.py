@@ -14,8 +14,8 @@ class Score(Actor):
     def __init__(self,position,player):
         super().__init__()
         self._position=position
-        self._points = 0
-        self.set_text(f"Player {player}: 0")
+        self._points = 3
+        self.set_text(f"Player {player}: {self._points}")
 
     def subtract_points(self, points,player):
         """Subtract the given points to the score's total points.

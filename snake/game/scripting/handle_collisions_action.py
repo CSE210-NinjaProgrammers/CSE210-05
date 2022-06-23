@@ -37,6 +37,7 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         score = cast.get_first_actor("scores")
+        score2 = cast.get_first_actor("scores2")
         snake_2 = cast.get_first_actor("snake2")
         snake = cast.get_first_actor("snake1")
         head = snake.get_head()

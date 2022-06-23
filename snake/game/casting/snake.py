@@ -13,11 +13,11 @@ class Snake(Actor):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self,body_color,initial_position_x,initial_position_y):
+    def __init__(self):
         super().__init__()
         self._segments = []
-        self._body_color = body_color
-        self._prepare_body(initial_position_x, initial_position_y)
+       # self._body_color = body_color
+        #self._prepare_body(initial_position_x, initial_position_y)
 
     def set_score_text(self):
         points = self.get_point()
