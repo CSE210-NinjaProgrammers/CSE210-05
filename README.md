@@ -8,7 +8,7 @@ and live through it.
 
 - Doug Bradbury -
 
-Cycle is a game where players have to run away from their opponent using cycles, the challenge is that cycles leave a trail behind the player.
+Cycle is a game where players have to run away from their opponent using cycles, the challenge is that cycles leave a trail behind the player. 
 
 ## Getting Started
 ---
