@@ -16,20 +16,17 @@ class Snake(Actor):
     def __init__(self, initial_information: PlayerInitialInformation):
         super().__init__()
         self._segments = []
+        self.stop_grow_tail = False
         self._body_color = initial_information["color"]
         self._prepare_body(initial_information["x_position"], initial_information["y_position"])
 
     def get_segments(self):
         return self._segments
 
-    def move_next(self):
+    def move_next(self):     
         self.grow_tail(1)
         # move all segments
         for segment in self._segments:
-            x1 = 0
-            y1 = 1
-            velocity = Point(x1, y1)
-            segment.set_velocity(velocity)
             segment.move_next()
         # update velocities
         for i in range(len(self._segments) - 1, 0, -1):
@@ -42,18 +39,19 @@ class Snake(Actor):
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
-        for i in range(number_of_segments):
-            tail = self._segments[-1]
-            velocity = tail.get_velocity()
-            offset = velocity.reverse()
-            position = tail.get_position().add(offset)
+        if self.stop_grow_tail == False:
+            for i in range(number_of_segments):
+                tail = self._segments[-1]
+                velocity = tail.get_velocity()
+                offset = velocity.reverse()
+                position = tail.get_position().add(offset)
             
-            segment = Actor()
-            segment.set_position(position)
-            segment.set_velocity(velocity)
-            segment.set_text("#")
-            segment.set_color(self._body_color)
-            self._segments.append(segment)
+                segment = Actor()
+                segment.set_position(position)
+                segment.set_velocity(velocity)
+                segment.set_text("#")
+                segment.set_color(self._body_color)
+                self._segments.append(segment)
 
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
@@ -72,3 +70,6 @@ class Snake(Actor):
         segment.set_text(text)
         segment.set_color(self._body_color)
         self._segments.append(segment)
+    
+   
+

@@ -14,7 +14,7 @@ class KeyboardService:
     def __init__(self):
         """Constructs a new KeyboardService."""
         self._keys = {}
-        
+        self.is_game_starting = False
         self._keys['w'] = pyray.KEY_W
         self._keys['a'] = pyray.KEY_A
         self._keys['s'] = pyray.KEY_S
@@ -42,3 +42,6 @@ class KeyboardService:
         """
         pyray_key = self._keys[key.lower()]
         return pyray.is_key_down(pyray_key)
+    
+
+    

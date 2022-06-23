@@ -72,7 +72,10 @@ class HandleCollisionsAction(Action):
         if self._is_game_over:
             snake = cast.get_first_actor("left_player")
             segments = snake.get_segments()
-            food = cast.get_first_actor("right_player")
+            snake2 = cast.get_first_actor("right_player")
+            segments2 = snake2.get_segments()
+            snake.stop_grow_tail = True
+            snake2.stop_grow_tail = True
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -85,4 +88,9 @@ class HandleCollisionsAction(Action):
 
             for segment in segments:
                 segment.set_color(constants.WHITE)
-            food.set_color(constants.WHITE)
+
+            for segment in segments2:
+                segment.set_color(constants.WHITE)
+    
+
+
