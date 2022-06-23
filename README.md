@@ -18,6 +18,16 @@ python3 -m pip install raylib
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the project folder. Select the main module inside the hunter folder and click the "run" icon.
 
+## Starting the Game
+---
+Player One- Press any key from (W, S, A and D keys) to show snake.
+Player Two- Press any key from (I, K, J and L keys) to show snake.
+
+## Points
+---
+Each player start with 3 points, everytime an opponent head colides with a part of your tail, you loose one point. Samething applies to the other player. If both 
+players colide head to head, it GAME OVER for both players. Once a player loses all it points, it GAME OVER and the other player wins.
+
 ## Project Structure
 ---
 The project files and folders are organized as follows:
@@ -44,8 +54,8 @@ root                    (project root folder)
 * Juan David Estrada (jdemachado1105@gmail.com)
 
 ## Contributors 
-* Eric Farley        
-* Tulio Banegas      
-* Livia Pimentel     
-* Alfred Kamisesse   
-* Juan David Estrada 
+* Eric Farley        ----> Add logics to perform game in most classes actions of the game including inheriting from parent class and giving points and colision.
+* Tulio Banegas      ----> Inputs class methods and attributes to other classes with movement of snakes and others vertical movement plus keyboard service changes.
+* Livia Pimentel     ----> Help with ideas of the positions of the snakes and it velocity of each snakes including the frame-rate.
+* Alfred Kamisesse   ----> Do updates to describe how the game works and how points a used in the game and other ideas to README file and class.
+* Juan David Estrada ----> Help with preparing the README file and updates the respository and with the growing tail of the snake at the end with colors.
